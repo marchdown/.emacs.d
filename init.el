@@ -7,6 +7,10 @@
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backup" user-emacs-directory))))
 
+;;;; Load mac keybindings if on a mac
+(if (eq window-system 'ns)
+    (load (expand-file-name  "cmd-keybindings.el" user-emacs-directory)))
+
 ;;;; Packages
 (require 'package)
 (add-to-list 'package-archives
@@ -23,12 +27,20 @@
                                   auctex
                                   go-mode
                                   haskell-mode
+                                  gist
 ;;                                  clojure-mode
-                         color-theme-zenburn))
+                                  color-theme-zenburn))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;;;; Some of these reference packages, so packages should be loaded by now
+;;;; Load everything else in init.d
+(if (file-exists-p (expand-file-name "init.d/" user-emacs-directory))
+    (dolist (file (directory-files (expand-file-name "init.d/" user-emacs-directory) t "\\.el$"))
+      (load file)))
+
 
 ;;;; mode associations
 (autoload 'octave-mode "octave-mod" nil t)
@@ -36,8 +48,7 @@
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
 ;;;; Keybindings
-(if (eq window-system 'ns)
-    (load "cmd-keybindings.el"))
+(global-set-key (kbd "<f8>") 'gist-region-or-buffer)
 
 ;; Yegge's advice
 (global-set-key "\C-x\C-m" 'execute-extended-command)
