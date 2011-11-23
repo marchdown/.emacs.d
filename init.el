@@ -7,6 +7,7 @@
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backup" user-emacs-directory))))
 
+(add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
 ;;;; Load mac keybindings if on a mac
 (if (eq window-system 'ns)
     (load (expand-file-name  "cmd-keybindings.el" user-emacs-directory)))
@@ -40,6 +41,9 @@
 (if (file-exists-p (expand-file-name "init.d/" user-emacs-directory))
     (dolist (file (directory-files (expand-file-name "init.d/" user-emacs-directory) t "\\.el$"))
       (load file)))
+
+
+
 
 
 ;;;; mode associations
