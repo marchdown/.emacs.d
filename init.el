@@ -29,8 +29,13 @@
                                   go-mode
                                   haskell-mode
                                   gist
-;;                                  clojure-mode
-                                  color-theme-zenburn))
+                                  color-theme-zenburn
+                                  ;;
+                                  clojure-mode
+                                  slime
+                                  slime-repl
+;;                                  swank-clojure
+                                  ))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -109,3 +114,21 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
       (lambda (&optional arg) "insert latex-like index." (interactive "p") (kmacro-exec-ring-item (quote ([36 36 left 95 123 125 left] 0 "%d")) arg)))
 
 (global-set-key "\C-xi" 'insert-index)
+
+;;;; Clojure setup
+
+(setq inferior-lisp-program "/home/user/my-clojure-startup-script.sh"
+    inferior-lisp-load-command "(load \"%s\")\n"
+    lisp-function-doc-command "(doc %s)\n"
+    lisp-var-doc-command "(doc %s)\n")
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
