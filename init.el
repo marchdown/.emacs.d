@@ -77,6 +77,7 @@
 
 ;;;; Org-mode
 (require 'org-install)
+(defvar  org-agenda-files ("~/org/reading.org" "~/org/incubator.org" "~/org/README.org" "~/org/classes/"))
 
 (defun org-transpose-table-at-point ()
   "Transpose orgmode table at point, eliminate hlines"
