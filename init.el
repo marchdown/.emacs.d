@@ -92,7 +92,7 @@
                        contents ""))
     (org-table-align)))
 ;;;; Org mode keybindings
-(global-set-key (kbd "<f12>") 'org-search-view)
+;;;;(global-set-key (kbd <C-c a s>) 'org-search-view)
 
 ;(defvar inferior-octave-program
 ;"/Applications/Octave.app/Contents/MacOS/Octave")
