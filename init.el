@@ -76,6 +76,7 @@
 (defvar inferior-lisp "java -cp ~/clojure/clojure.jar clojure.main")
 
 ;;;; Org-mode
+(require 'org-install)
 
 (defun org-transpose-table-at-point ()
   "Transpose orgmode table at point, eliminate hlines"
@@ -90,6 +91,8 @@
     (insert (mapconcat (lambda(x) (concat "| " (mapconcat 'identity x " | " ) "  |\n" ))
                        contents ""))
     (org-table-align)))
+;;;; Org mode keybindings
+(global-set-key (kbd "<f12>") 'org-search-view)
 
 ;(defvar inferior-octave-program
 ;"/Applications/Octave.app/Contents/MacOS/Octave")
@@ -128,7 +131,7 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+;; (when
+;;     (load
+;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
+;;   (package-initialize))
