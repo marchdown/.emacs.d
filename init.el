@@ -77,7 +77,7 @@
 
 ;;;; Org-mode
 (require 'org-install)
-(defvar  org-agenda-files ("~/org/reading.org" "~/org/incubator.org" "~/org/README.org" "~/org/classes/"))
+(defvar  org-agenda-files (list "~/org/reading.org" "~/org/incubator.org" "~/org/README.org" "~/org/classes/"))
 
 (defun org-transpose-table-at-point ()
   "Transpose orgmode table at point, eliminate hlines"
@@ -126,6 +126,10 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
     lisp-function-doc-command "(doc %s)\n"
     lisp-var-doc-command "(doc %s)\n")
 
+;;;; Text mode
+(add-hook 'text-mode-hook 
+          (lambda () (auto-fill-mode -1) (visual-line-mode 1)))
+
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
@@ -136,3 +140,4 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
+
