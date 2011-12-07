@@ -31,7 +31,7 @@
                                   gist
                                   color-theme-zenburn
                                   ;;
-                                  clojure-mode
+;;                                  clojure-mode
                                   slime
                                   slime-repl
 ;;                                  swank-clojure
@@ -72,8 +72,15 @@
 
 (global-set-key "\C-x/" 'comment-or-uncomment-region)
 
-;;;; Clojure
-(defvar inferior-lisp "java -cp ~/clojure/clojure.jar clojure.main")
+;;;; Clojure setup
+; the next lines are actively harmful
+;(defvar inferior-lisp "java -cp ~/clojure/clojure.jar clojure.main")
+
+;; (setq inferior-lisp-program "/home/user/my-clojure-startup-script.sh"
+;;     inferior-lisp-load-command "(load \"%s\")\n"
+;;     lisp-function-doc-command "(doc %s)\n"
+;;     lisp-var-doc-command "(doc %s)\n")
+
 
 ;;;; Org-mode
 (require 'org-install)
@@ -119,12 +126,6 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 
 (global-set-key "\C-xi" 'insert-index)
 
-;;;; Clojure setup
-
-(setq inferior-lisp-program "/home/user/my-clojure-startup-script.sh"
-    inferior-lisp-load-command "(load \"%s\")\n"
-    lisp-function-doc-command "(doc %s)\n"
-    lisp-var-doc-command "(doc %s)\n")
 
 ;;;; Text mode
 (add-hook 'text-mode-hook 
