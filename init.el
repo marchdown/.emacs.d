@@ -2,6 +2,12 @@
 (setq emacs-init-file load-file-name)
 (setq user-emacs-directory
       (file-name-directory emacs-init-file))
+(require 'recentf)
+(setq recentf-keep '(file-remote-p file-readable-p))
+(setq recentf-auto-cleanup 'never) ;; disable before we start recentf!
+(recentf-mode 1)
+
+
 (setq custom-file (expand-file-name "emacs-customizations.el" user-emacs-directory))
 (load custom-file)
 (setq backup-directory-alist
@@ -21,15 +27,16 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-eshell
-                                  starter-kit-bindings scpaste
+(defvar my-packages '(;starter-kit starter-kit-lisp starter-kit-eshell
+                       ;           starter-kit-bindings scpaste
                                   markdown-mode marmalade
                                   color-theme
                                   auctex
                                   go-mode
-                                  haskell-mode
+
+                                 haskell-mode
                                   gist
-                                  color-theme-zenburn
+;;                                  color-theme-zenburn
                                   ;;
 ;;                                  clojure-mode
                                   slime
@@ -80,30 +87,6 @@
 ;;     inferior-lisp-load-command "(load \"%s\")\n"
 ;;     lisp-function-doc-command "(doc %s)\n"
 ;;     lisp-var-doc-command "(doc %s)\n")
-
-
-;;;; Org-mode
-(require 'org-install)
-(defvar  org-agenda-files (list "~/org/reading.org" "~/org/incubator.org" "~/org/README.org" "~/org/classes/"))
-
-(defun org-transpose-table-at-point ()
-  "Transpose orgmode table at point, eliminate hlines"
-  (interactive)
-  (let ((contents
-         (apply #'mapcar* #'list
-                ;; remove 'hline from list
-                (remove-if-not 'listp
-                               ;; signals error if not table
-                               (org-table-to-lisp)))))
-    (delete-region (org-table-begin) (org-table-end))
-    (insert (mapconcat (lambda(x) (concat "| " (mapconcat 'identity x " | " ) "  |\n" ))
-                       contents ""))
-    (org-table-align)))
-;;;; Org mode keybindings
-;;;;(global-set-key (kbd <C-c a s>) 'org-search-view)
-
-;(defvar inferior-octave-program
-;"/Applications/Octave.app/Contents/MacOS/Octave")
 
 ;;;; My functions
 (defun collect-word (arg)

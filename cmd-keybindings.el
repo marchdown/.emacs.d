@@ -17,3 +17,7 @@
 ;;;; Completion. Note that M-tab corresponds to command+tab on a mac.
 (global-set-key (kbd "M-/") 'dabbrev-expand)
 (global-set-key (kbd "M-?") 'complete-symbol)
+
+(global-set-key (kbd "C-S-v") 'scroll-up-command)
+(global-set-key (kbd "C-v") 'scroll-down-command)
+(global-set-key (kbd "M-v") 'yank)

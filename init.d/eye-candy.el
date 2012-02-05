@@ -3,9 +3,10 @@
 ;(invert-face 'default)
 
 (require 'color-theme)
-(if (require 'color-theme-zenburn) (color-theme-zenburn) nil) 
-
+;(if (require 'color-theme-zenburn) (color-theme-zenburn) nil) 
+;(set-fontset-font "fontset-default" 'cyrillic '("Anonymous Pro". "unicode-bmp"))
 ;(set-default-font "Anonymous Pro")
+;;фубарчек
 ;(set-default-font "Terminus")
 
 (load "emacs-rc-pretty-lambda.el")
