@@ -19,34 +19,34 @@
     (load (expand-file-name  "cmd-keybindings.el" user-emacs-directory)))
 
 ;;;; Packages
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (package-initialize)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
-(defvar my-packages '(;starter-kit starter-kit-lisp starter-kit-eshell
-                       ;           starter-kit-bindings scpaste
-                                  markdown-mode marmalade
-                                  color-theme
-                                  auctex
-                                  go-mode
+;; (defvar my-packages '(;starter-kit starter-kit-lisp starter-kit-eshell
+;;                        ;           starter-kit-bindings scpaste
+;;                                   markdown-mode marmalade
+;;                                   color-theme
+;;                                   auctex
+;;                                   go-mode
 
-                                 haskell-mode
-                                  gist
-;;                                  color-theme-zenburn
-                                  ;;
-;;                                  clojure-mode
-                                  slime
-                                  slime-repl
-;;                                  swank-clojure
-                                  ))
+;;                                  haskell-mode
+;;                                   gist
+;; ;;                                  color-theme-zenburn
+;;                                   ;;
+;; ;;                                  clojure-mode
+;;                                   slime
+;;                                   slime-repl
+;; ;;                                  swank-clojure
+;;                                   ))
 
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+;; (dolist (p my-packages)
+;;   (when (not (package-installed-p p))
+;;     (package-install p)))
 
 ;;;; Some of these reference packages, so packages should be loaded by now
 ;;;; Load everything else in init.d

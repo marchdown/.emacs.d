@@ -2,7 +2,7 @@
 ;(setq default-frame-alist '((tool-bar-lines . 0) (menu-bar-lines . 1) (width . 80) (height . 50)))
 ;(invert-face 'default)
 
-(require 'color-theme)
+;(require 'color-theme)
 ;(if (require 'color-theme-zenburn) (color-theme-zenburn) nil) 
 ;(set-fontset-font "fontset-default" 'cyrillic '("Anonymous Pro". "unicode-bmp"))
 ;(set-default-font "Anonymous Pro")
