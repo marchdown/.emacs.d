@@ -4,6 +4,7 @@
 ;(set-register ?x '(file . "~/.xbindkeysrc.scm"))
 (set-register ?i '(file . "~/.emacs.d/init.el"))
 (set-register ?o '(file . "~/org/README.org"))
+(if (equal (shell-command-to-string "/usr/bin/whoami") "codepraxis\n") (set-register ?o '(file . "/infodump-codepraxis.org")))
 (set-register ?x '(file . "~/.xmonad/xmonad.hs"))
 (set-register ?r '(file . "~/.emacs.d/init.d/registers.el"))
 (set-register ?t '(file . "~/org/tempus.org"))

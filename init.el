@@ -1,7 +1,6 @@
 ;;;; get current directory
 (setq emacs-init-file load-file-name)
-(setq user-emacs-directory
-      (file-name-directory emacs-init-file))
+;; (setq user-emacs-directory (file-name-directory emacs-init-file)) ;; something's wrong here
 (require 'recentf)
 (setq recentf-keep '(file-remote-p file-readable-p))
 (setq recentf-auto-cleanup 'never) ;; disable before we start recentf!
@@ -39,8 +38,8 @@
 ;;                                  color-theme-zenburn
                                   ;;
 ;;                                  clojure-mode
-                                  slime
-                                  slime-repl
+;;                                  slime
+;;                                  slime-repl
 ;;                                  swank-clojure
                                   ))
 
