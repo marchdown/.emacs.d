@@ -10,5 +10,6 @@
 (set-register ?t '(file . "~/org/tempus.org"))
 (set-register ?g '(file . "~/.gitconfig"))
 ;(set-register ?f '(file . "~/.emacs.d/funcs.el"))
-(set-register ?k '(file . "~/.ssh/known_hosts"))
+;(set-register ?k '(file . "~/.ssh/known_hosts"))
+(set-register ?k '(file . "~/.emacs.d/init.d/cyrillic-colemak.el"))
 (set-register ?c '(file . "~/.ssh/config"))
