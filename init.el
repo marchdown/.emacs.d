@@ -20,28 +20,29 @@
 ;;;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(;starter-kit starter-kit-lisp starter-kit-eshell
-                       ;           starter-kit-bindings scpaste
-                                  markdown-mode marmalade
-                                  color-theme
-                                  auctex
-                                  go-mode
-
-                                 haskell-mode
-                                  gist
-;;                                  color-theme-zenburn
-                                  ;;
-;;                                  clojure-mode
-;;                                  slime
-;;                                  slime-repl
-;;                                  swank-clojure
-                                  ))
+(defvar my-packages
+ '(
+   ;; starter-kit starter-kit-lisp starter-kit-eshell
+   ;; starter-kit-bindings scpaste
+   marmalade
+   markdown-mode
+   color-theme
+   ;; color-theme-zenburn
+   auctex
+   go-mode
+   haskell-mode
+   gist
+   clojure-mode
+   slime
+   slime-repl
+   ;; swank-clojure
+ ))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -110,8 +111,8 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 
 
 ;;;; Text mode
-(add-hook 'text-mode-hook 
-          (lambda () (auto-fill-mode -1) (visual-line-mode 1)))
+(add-hook 'text-mode-hook
+	  (lambda () (auto-fill-mode -1) (visual-line-mode 1)))
 
 
 ;;; This was installed by package-install.el.
@@ -123,4 +124,3 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
-
