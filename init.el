@@ -1,11 +1,19 @@
 ;;;; get current directory
 (setq emacs-init-file load-file-name)
+(load "$HOME/.emacs.d/init.d/registers.el")
 ;; (setq user-emacs-directory (file-name-directory emacs-init-file)) ;; something's wrong here
+
+;;;;;;;;
+;;;; There's something deeply wrong with slapping something on top of exec-path 
+(add-to-list 'exec-path "/usr/local/bin")
+;;;; more comprehensive alternative:
+;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+;; (setq exec-path (append exec-path '("/usr/local/bin")))
+
 (require 'recentf)
 (setq recentf-keep '(file-remote-p file-readable-p))
 (setq recentf-auto-cleanup 'never) ;; disable before we start recentf!
 (recentf-mode 1)
-
 
 (setq custom-file (expand-file-name "emacs-customizations.el" user-emacs-directory))
 (load custom-file)
@@ -20,7 +28,9 @@
 ;;;; Packages
 (require 'package)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+ 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -32,17 +42,21 @@
    ;; starter-kit-bindings scpaste
    marmalade
    markdown-mode
-   color-theme
+   ;; sublime-themes
+   ;; color-theme
+   rainbow-delimiters
    ;; color-theme-zenburn
    auctex
    go-mode
    haskell-mode
    gist
    clojure-mode
+   paredit
    slime
    slime-repl
-   ;; swank-clojure
+   ;;swank-clojure
  ))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -50,13 +64,10 @@
 
 ;;;; Some of these reference packages, so packages should be loaded by now
 ;;;; Load everything else in init.d
+
 (if (file-exists-p (expand-file-name "init.d/" user-emacs-directory))
     (dolist (file (directory-files (expand-file-name "init.d/" user-emacs-directory) t "\\.el$"))
       (load file)))
-
-
-
-
 
 ;;;; mode associations
 (autoload 'octave-mode "octave-mod" nil t)
@@ -124,3 +135,12 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
+
+(add-hook 'clojure-mode-hook
+	  (lambda ()
+	    (paredit-mode)
+	    (rainbow-delimiters-mode)
+	    (load-theme 'granger t)))
+
+
+
