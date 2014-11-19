@@ -55,6 +55,10 @@
    slime
    slime-repl
    ;;swank-clojure
+
+   ;;;; from melpa
+   4clojure
+   dash-at-point
  ))
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
@@ -73,6 +77,9 @@
 (autoload 'octave-mode "octave-mod" nil t)
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+
 
 ;;;; Keybindings
 (global-set-key (kbd "<f8>") 'gist-region-or-buffer)
