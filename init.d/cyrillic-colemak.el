@@ -48,4 +48,5 @@
 
 ;;;;; Dash
 (global-set-key "\C-cd" 'dash-at-point)
-(global-set-key "\C-ce" 'dash-at-point-with-docset)
+(global-set-key "\C-c C-d" 'dash-at-point)
+(global-set-key "\C-c C-e" 'dash-at-point-with-docset)

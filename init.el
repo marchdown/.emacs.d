@@ -46,7 +46,7 @@
    ;; color-theme
    rainbow-delimiters
    ;; color-theme-zenburn
-   auctex
+   ;; auctex
    go-mode
    haskell-mode
    gist
@@ -148,6 +148,16 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 	    (paredit-mode)
 	    (rainbow-delimiters-mode)
 	    (load-theme 'granger t)))
+
+(add-hook 'haskell-mode-hook
+	  (lambda ()
+	    (haskell-indentation-mode)
+	    (pretty-symbols-mode)
+	    (paredit-mode)
+	    (rainbow-delimiters-mode)
+	    (load-theme 'spolsky t)))
+
+
 
 
 
