@@ -41,6 +41,10 @@
    ;; starter-kit starter-kit-lisp starter-kit-eshell
    ;; starter-kit-bindings scpaste
    marmalade
+   better-defaults
+   magit
+   smex
+   ido-ubiquitous
    markdown-mode
    ;; sublime-themes
    ;; color-theme
@@ -59,8 +63,7 @@
    ;;;; from melpa
    4clojure
    dash-at-point
- ))
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+   ))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -142,22 +145,5 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
-
-(add-hook 'clojure-mode-hook
-	  (lambda ()
-	    (paredit-mode)
-	    (rainbow-delimiters-mode)
-	    (load-theme 'granger t)))
-
-(add-hook 'haskell-mode-hook
-	  (lambda ()
-	    (haskell-indentation-mode)
-	    (pretty-symbols-mode)
-	    (paredit-mode)
-	    (rainbow-delimiters-mode)
-	    (load-theme 'spolsky t)))
-
-
-
-
-
+;(require 'smex)
+(smex-initialize)
