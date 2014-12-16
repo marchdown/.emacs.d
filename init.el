@@ -5,7 +5,7 @@
 
 ;;;;;;;;
 ;;;; There's something deeply wrong with slapping something on top of exec-path 
-(add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path  "/usr/local/bin")
 ;;;; more comprehensive alternative:
 ;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -146,4 +146,4 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
 ;(require 'smex)
-(smex-initialize)
+

@@ -61,3 +61,7 @@
 
 
 
+;;;; function keys
+(global-set-key (kbd "C-<f11>") 'toggle-frame-fullscreen)
+
+

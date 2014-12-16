@@ -1,4 +1,5 @@
-(set-register ?e '(file . "/code/prose/notes-on-emacs.md"))
+;(set-register ?e '(file . "/code/prose/notes-on-emacs.md"))
+(set-register ?e '(file . "~/.emacs.d/init.d/eye-candy.el"))
 (set-register ?n '(file . "~/Dropbox/org/notes.org"))
 (set-register ?z '(file . "~/Dropbox/org/commonplacebook.org"))
 ;(set-register ?t '(file . "~/documents/TODO.org"))
