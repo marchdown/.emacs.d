@@ -85,7 +85,7 @@
 
 
 ;;;; Keybindings
-(global-set-key (kbd "<f8>") 'gist-region-or-buffer)
+
 
 ;; Yegge's advice
 (global-set-key "\C-x\C-m" 'execute-extended-command)

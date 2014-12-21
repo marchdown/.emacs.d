@@ -51,7 +51,6 @@
 (global-set-key "\C-c C-d" 'dash-at-point)
 (global-set-key "\C-c C-e" 'dash-at-point-with-docset)
 
-
 ;;;; SMEX
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
@@ -60,8 +59,8 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 
-
 ;;;; function keys
+(global-set-key (kbd "<f8>") 'gist-region-or-buffer)
 (global-set-key (kbd "C-<f11>") 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-<f12>") 'org-agenda)
 
