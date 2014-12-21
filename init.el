@@ -10,6 +10,7 @@
 ;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
 
+(add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
 
 (setq custom-file (expand-file-name "emacs-customizations.el" user-emacs-directory))
 (load custom-file)
@@ -23,10 +24,6 @@
       recentf-auto-cleanup 'never) ;; disable before we start recentf!
 (recentf-mode 1)
 
-
-
-
-(add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
 ;;;; Packages
 ;; Package repos
 (require 'package)
@@ -44,28 +41,20 @@
 ;; packages themselves
 (defvar my-packages
  '(
-   ;; starter-kit starter-kit-lisp starter-kit-eshell
-   ;; starter-kit-bindings scpaste
+   scpaste
+   gist
    marmalade
    better-defaults
    magit
    smex
    ido-ubiquitous
-   markdown-mode
-   ;; sublime-themes
-   ;; color-theme
    rainbow-delimiters
-   ;; color-theme-zenburn
-   ;; auctex
+   auctex
+   markdown-mode
    go-mode
    haskell-mode
-   gist
    clojure-mode
    paredit
-
-   ;;slime
-   ;;slime-repl
-   ;;swank-clojure
    ;;;; from melpa
    cider   
    4clojure
