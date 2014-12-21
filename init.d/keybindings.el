@@ -1,6 +1,3 @@
-;;;;
-;; this file gets loaded from init.d/keybindings.el if window-system is 'ns
-
 ;;;; Cyrillic Colemak 
 ;;;; Cyrillic _and_ Cmd-as-meta
 (global-set-key (kbd "M-о") 'make-frame-command)
@@ -80,7 +77,7 @@
 
 
 ;;;; function keys
-(global-set-key (kbd "<f8>") 'gist-region-or-buffer)
+(global-set-key (kbd "M-<f8>") 'gist-region-or-buffer)
 (global-set-key (kbd "C-<f11>") 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-<f12>") 'org-agenda)
 

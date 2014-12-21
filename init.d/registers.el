@@ -16,3 +16,4 @@
 ;(set-register ?k '(file . "~/.ssh/known_hosts"))
 (set-register ?k '(file . "~/.emacs.d/init.d/keybindings.el"))
 (set-register ?c '(file . "~/.ssh/config"))
+(set-register ?l '(file . "~/.emacs.d/latex-config.el"))

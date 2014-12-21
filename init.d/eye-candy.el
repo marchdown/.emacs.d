@@ -1,5 +1,5 @@
 ;;;; Eye candy
-;(setq default-frame-alist '((tool-bar-lines . 0) (menu-bar-lines . 1) (width . 80) (height . 50)))
+(setq default-frame-alist '((tool-bar-lines . 0) (menu-bar-lines . 1) (width . 80) (height . 52)))
 ;(invert-face 'default)
 
 ;;;; <- http://bzg.fr/emacs-strip-tease.html
@@ -65,10 +65,14 @@
 
 (add-hook 'haskell-mode-hook
 	  (lambda ()
+            (turn-on-haskell-indentation)
 	    (haskell-indentation-mode)
 	    (pretty-symbols-mode)
 	    (paredit-mode)
 	    (load-theme 'spolsky t)))
+
+(eval-after-load 'haskell-mode
+          '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 
 (add-hook 'python-mode-hook
 	  (lambda ()
@@ -89,8 +93,6 @@
    python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
 
-;(require 'color-theme)
-;(if (require 'color-theme-zenburn) (color-theme-zenburn) nil) 
 ;(set-fontset-font "fontset-default" 'cyrillic '("Anonymous Pro". "unicode-bmp"))
 ;(set-default-font "Anonymous Pro")
 ;;фубарчек

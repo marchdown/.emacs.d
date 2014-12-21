@@ -5,9 +5,10 @@
 
 ;;;;;;;;
 ;;;; There's something deeply wrong with slapping something on top of exec-path 
-(add-to-list 'exec-path  "/usr/local/bin")
+;(add-to-list 'exec-path  "/usr/local/bin")
+;(add-to-list 'exec-path  "/usr/texbin")
 ;;;; more comprehensive alternative:
-;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/usr/texbin"))
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
 
 (add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
@@ -53,12 +54,18 @@
    markdown-mode
    go-mode
    haskell-mode
-   clojure-mode
    paredit
    ;;;; from melpa
+   clojure-mode
    cider   
    4clojure
    dash-at-point
+   ;;  ;;  ;;  ;;
+   zenburn-theme
+   solarized-theme
+   cyberpunk-theme
+   ample-theme
+   spacegray-theme
    ))
 
 (dolist (p my-packages)
@@ -77,7 +84,6 @@
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.md$" . markdown-mode) auto-mode-alist))
-
 
 ;;;; My functions
 (defun collect-word (arg)
@@ -105,5 +111,6 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 (add-hook 'text-mode-hook
 	  (lambda () (auto-fill-mode -1) (visual-line-mode 1)))
 
+(load (expand-file-name  "latex-config.el" user-emacs-directory))
 
 
