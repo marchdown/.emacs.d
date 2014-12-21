@@ -74,9 +74,20 @@
 	  (lambda ()
 	    (paredit-mode)
 	    (load-theme 'graham t)))
-
-
-
+;; from http://stackoverflow.com/questions/17817019/how-to-open-ipython-interpreter-in-emacs
+;; cf. https://github.com/steinn/emacs-prelude/blob/master/modules/prelude-python.el#L44
+(when (executable-find "ipython")
+  (setq
+   python-shell-interpreter "ipython"
+   python-shell-interpreter-args ""
+   python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+   python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+   python-shell-completion-setup-code
+   "from IPython.core.completerlib import module_completion"
+   python-shell-completion-module-string-code
+   "';'.join(module_completion('''%s'''))\n"
+   python-shell-completion-string-code
+   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
 
 ;(require 'color-theme)
 ;(if (require 'color-theme-zenburn) (color-theme-zenburn) nil) 
@@ -98,4 +109,21 @@
 ;"řŘR ασδφ΄λκξ"
 
 
+;;;; Clojure pretty-lambdas
+;; from http://eschulte.github.io/emacs-starter-kit/starter-kit-lisp.html
+;; symbols for some overlong function names
+(eval-after-load 'clojure-mode
+  '(font-lock-add-keywords
+    'clojure-mode
+    (mapcar
+     (lambda (pair)
+       `(,(car pair)
+         (0 (progn (compose-region
+                    (match-beginning 0) (match-end 0)
+                    ,(cadr pair))
+                   nil))))
+     '(("\\<fn\\>" ?ƒ)
+       ("\\<comp\\>" ?∘)
+       ("\\<partial\\>" ?∂)
+       ("\\<complement\\>" ?¬)))))
 
