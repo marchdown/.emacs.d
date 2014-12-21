@@ -32,7 +32,10 @@
     (load (expand-file-name  "cmd-keybindings.el" user-emacs-directory)))
 
 ;;;; Packages
+;; Package repos
 (require 'package)
+(add-to-list 'package-archives
+ 	     '("GNU ELPA" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
  	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
@@ -42,6 +45,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;; packages themselves
 (defvar my-packages
  '(
    ;; starter-kit starter-kit-lisp starter-kit-eshell
@@ -62,11 +66,12 @@
    gist
    clojure-mode
    paredit
-   slime
-   slime-repl
-   ;;swank-clojure
 
+   ;;slime
+   ;;slime-repl
+   ;;swank-clojure
    ;;;; from melpa
+   cider   
    4clojure
    dash-at-point
    ))
@@ -106,15 +111,6 @@
 
 (global-set-key "\C-x/" 'comment-or-uncomment-region)
 
-;;;; Clojure setup
-; the next lines are actively harmful
-;(defvar inferior-lisp "java -cp ~/clojure/clojure.jar clojure.main")
-
-;; (setq inferior-lisp-program "/home/user/my-clojure-startup-script.sh"
-;;     inferior-lisp-load-command "(load \"%s\")\n"
-;;     lisp-function-doc-command "(doc %s)\n"
-;;     lisp-var-doc-command "(doc %s)\n")
-
 ;;;; My functions
 (defun collect-word (arg)
   "Copy word under point to a separate buffer.
@@ -142,19 +138,4 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 	  (lambda () (auto-fill-mode -1) (visual-line-mode 1)))
 
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-;; (when
-;;     (load
-;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
-;;   (package-initialize))
-;(require 'smex)
 
-
-(require 'recentf)
-(setq recentf-max-saved-items 200
-      recentf-max-menu-items 15)
-(recentf-mode +1)
