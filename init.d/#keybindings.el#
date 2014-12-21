@@ -1,6 +1,3 @@
-;;;;
-;; this file gets loaded from init.d/keybindings.el if window-system is 'ns
-
 ;;;; Cyrillic Colemak 
 ;;;; Cyrillic _and_ Cmd-as-meta
 (global-set-key (kbd "M-о") 'make-frame-command)

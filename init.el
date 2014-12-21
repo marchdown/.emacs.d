@@ -27,10 +27,6 @@
 
 
 (add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
-;;;; Load mac keybindings if on a mac
-(if (eq window-system 'ns)
-    (load (expand-file-name  "cmd-keybindings.el" user-emacs-directory)))
-
 ;;;; Packages
 ;; Package repos
 (require 'package)
@@ -82,7 +78,6 @@
 
 ;;;; Some of these reference packages, so packages should be loaded by now
 ;;;; Load everything else in init.d
-
 (if (file-exists-p (expand-file-name "init.d/" user-emacs-directory))
     (dolist (file (directory-files (expand-file-name "init.d/" user-emacs-directory) t "\\.el$"))
       (load file)))
@@ -94,22 +89,6 @@
 (setq auto-mode-alist
       (cons '("\\.md$" . markdown-mode) auto-mode-alist))
 
-
-;;;; Keybindings
-
-
-;; Yegge's advice
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
-(global-set-key (kbd "C-c o") 'occur)
-
-;; These key combos are bound by default. So tread lightly here.
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-c\C-k" 'kill-region)
-
-(global-set-key "\C-x/" 'comment-or-uncomment-region)
 
 ;;;; My functions
 (defun collect-word (arg)
