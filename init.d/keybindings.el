@@ -63,5 +63,10 @@
 
 ;;;; function keys
 (global-set-key (kbd "C-<f11>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-<f12>") 'org-agenda)
+
+;;;; Dash (documentation browser)
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
 
 

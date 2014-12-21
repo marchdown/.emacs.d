@@ -4,9 +4,19 @@
 
 ;;;; <- http://bzg.fr/emacs-strip-tease.html
 
-(setq initial-scratch-message ";; This is Emacs. You can do anything in Emacs. Anything at all.
+(setq initial-scratch-message (concat "
+;;
+;; This is Emacs. You can do anything in Emacs. Anything at all.
 ;; your agenda is at C-<f12>
-")
+;; your zibaldone is at C-x r j z
+;; other registers are bound in register r
+;;
+;; you have been recently working on:
+;; "                                  
+(cadr recentf-list) "
+;; (M-x ffap to get there)      
+;;----------------------------------------------------------------------------;;
+"))
 
 (setq inhibit-startup-message t)
 
@@ -17,6 +27,10 @@
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
+
+;;(require 'powerline)
+;;(powerline-default-theme)
+
 
 
 ;; (show-paren-mode 1)
@@ -30,16 +44,17 @@
 
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dorsey t)
+;(load-theme 'dorsey t)
 
-(load-theme 'brin t)
+;(load-theme 'brin t)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (paredit-mode)
-	    (load-theme 'odersky t)))
+	    (load-theme 'odersky t)
+            ))
 
 (add-hook 'clojure-mode-hook
 	  (lambda ()

@@ -147,3 +147,8 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 ;;   (package-initialize))
 ;(require 'smex)
 
+
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 15)
+(recentf-mode +1)
