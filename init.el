@@ -10,15 +10,21 @@
 ;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
 
-(require 'recentf)
-(setq recentf-keep '(file-remote-p file-readable-p))
-(setq recentf-auto-cleanup 'never) ;; disable before we start recentf!
-(recentf-mode 1)
 
 (setq custom-file (expand-file-name "emacs-customizations.el" user-emacs-directory))
 (load custom-file)
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backup" user-emacs-directory))))
+;;;; recentf
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 15
+      recentf-keep '(file-remote-p file-readable-p)
+      recentf-auto-cleanup 'never) ;; disable before we start recentf!
+(recentf-mode 1)
+
+
+
 
 (add-to-list 'load-path (expand-file-name "libraries" user-emacs-directory))
 ;;;; Load mac keybindings if on a mac
