@@ -30,8 +30,8 @@
 (require 'package)
 (add-to-list 'package-archives
  	     '("GNU ELPA" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
- 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;(add-to-list 'package-archives
+; 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -44,28 +44,28 @@
  '(
    scpaste
    gist
-   marmalade
+;   marmalade
    better-defaults
-   magit
+;   magit
    smex
-   ido-ubiquitous
+;   ido-ubiquitous
    rainbow-delimiters
    auctex
-   markdown-mode
+;   markdown-mode
    go-mode
-   haskell-mode
+;   haskell-mode
    paredit
    ;;;; from melpa
-   clojure-mode
-   cider   
-   4clojure
-   dash-at-point
+;   clojure-mode
+;   cider   
+;   4clojure
+;   dash-at-point
    ;;  ;;  ;;  ;;
    zenburn-theme
    solarized-theme
-   cyberpunk-theme
-   ample-theme
-   spacegray-theme
+;   cyberpunk-theme
+;   ample-theme
+;   spacegray-theme
    ))
 
 (dolist (p my-packages)

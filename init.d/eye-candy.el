@@ -50,11 +50,11 @@
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (paredit-mode)
-	    (load-theme 'odersky t)
-            ))
+;; (add-hook 'emacs-lisp-mode-hook
+;; 	  (lambda ()
+;; 	    (paredit-mode)
+;; 	    (load-theme 'odersky t)
+;;             ))
 
 (add-hook 'clojure-mode-hook
 	  (lambda ()

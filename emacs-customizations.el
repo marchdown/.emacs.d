@@ -12,6 +12,9 @@
  '(linum-format " %7i ")
  '(org-agenda-files (quote ("~/Dropbox/org/commonplacebook.org")))
  '(package-archives (quote (("melpa" . "http://melpa.org/packages/"))))
+ '(package-selected-packages
+   (quote
+    (cyberpunk-theme solarized-theme zenburn-theme clojure-mode paredit haskell-mode go-mode markdown-mode auctex rainbow-delimiters ido-ubiquitous smex magit better-defaults idris-mode marmalade gist scpaste)))
  '(text-mode-hook (quote (text-mode-hook-identify))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
