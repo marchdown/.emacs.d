@@ -3,3 +3,9 @@ backups/*
 auto-save-list/*
 eshell
 #*#
+
+smex-items
+
+recentf
+
+backup/*
