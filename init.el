@@ -114,3 +114,4 @@ With argument ARG, use ARG as a buffer instead of *scratch*."
 (load (expand-file-name  "latex-config.el" user-emacs-directory))
 
 
+(require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")

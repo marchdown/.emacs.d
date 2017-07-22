@@ -129,3 +129,19 @@
        ("\\<partial\\>" ?∂)
        ("\\<complement\\>" ?¬)))))
 
+
+
+;;;; Coq
+;; http://www.dougwoos.com/2014/03/01/prettifying-coq-buffers-in-emacs.html
+(global-prettify-symbols-mode 1)
+(setq coq-symbols
+  '(("forall" ?∀)
+    ("->" ?→)
+    ("exists" ?∃)
+    ("=>" ?⇒)
+    ("False" ?⊥)
+    ("True" ?⊤)))
+
+(add-hook 'coq-mode-hook
+          (lambda ()
+            (setq prettify-symbols-alist coq-symbols)))
